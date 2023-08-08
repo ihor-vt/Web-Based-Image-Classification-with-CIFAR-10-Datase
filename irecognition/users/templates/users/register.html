@@ -1,0 +1,50 @@
+{% extends "mainpage/base.html" %}
+{% load static %}
+
+{% block head%}
+<link href="{% static 'css/login.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<section style="background-color: #535c68;">
+    <br ><br >
+    <div class="container pt-5">
+        <div class="mx-auto card login-form" style="width: 450px">
+            <div class="color-change">
+            <div class="card-body">
+                <img class="mb-4 mx-auto d-block logo" src="{% static 'img/logomak_logo.png' %}" alt="Logo" width="90"
+                    height="90">
+                <form method="post" class="form-signin">
+                    {% csrf_token %}
+                    <h3 id="mid" class="text-center">Registration</h3>
+                    <br >
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        {{ form.email }}
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="pswd">Password:</label>
+                        {{ form.password1 }}
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="pswd">Confirm password:</label>
+                        {{ form.password2 }}
+                    </div>
+                    <br>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-block btn-success">Submit</button>
+                    </div>
+                </form>
+                <br >
+                <div class="form-group text-center">
+                    <a href="{% url 'users:login' %}" class="ForgetPwd" value="Login">Login</a>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <br ><br >
+</section> 
+{% endblock %}

@@ -1,28 +1,27 @@
 [tool.poetry]
 name = "web-based-image-classification-with-cifar-10-datase"
 version = "0.1.0"
-description = ""
+description = "A Deep Learning Project for Image Classification"
 authors = ["Ihor Voitiuk"]
 license = "MIT"
 readme = "README.md"
-packages = [{include = "web_based_image_classification_with_cifar_10_datase"}]
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "3.10.10"
+tensorflow = "^2.12.0"
 django = "4.1"
 django-environ = "^0.10.0"
 pillow = "^10.0.0"
 pytest = "^7.4.0"
+celery = "^5.3.1"
+whitenoise = "^6.5.0"
+numpy = "1.23.5"
 
 [tool.poetry.dev-dependencies]
 pytest-django = "^4.5.2"
 factory-boy = "^3.3.0"
 pytest-factoryboy = "^2.5.1"
 pytest = "^7.4.0"
-
-[tool.poetry.group.dev.dependencies]
-pytest = "^7.4.0"
-pytest-django = "^4.5.2"
 
 [build-system]
 requires = ["poetry-core"]

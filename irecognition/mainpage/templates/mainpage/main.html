@@ -1,0 +1,447 @@
+{% extends "mainpage/base.html" %}
+{% load static %}
+
+{% block content %}
+<!-- Hero Section - Home Page -->
+<section id="hero" class="hero">
+
+    <img src="{% static 'img/hero-bgg.jpg' %}" alt="" data-aos="fade-in">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10">
+                <h2 data-aos="fade-up" data-aos-delay="100">Welcome to Our Website</h2>
+                <p data-aos="fade-up" data-aos-delay="200">Subscribe to get the latest updates</p>
+            </div>
+            <div class="col-lg-5">
+
+                <form method="post" action="/subscribe_newsletter/" class="sign-up-form d-flex" data-aos="fade-up"
+                    data-aos-delay="300">
+                    {% csrf_token %}
+                    {{ subscribe_form.email }}
+                    <button type="submit" class="btn btn-danger">Subscribe</button> 
+                </form>
+            </div>
+        </div>
+    </div>
+
+</section><!-- End Hero Section -->
+
+<!-- Clients Section - Home Page -->
+<section id="clients" class="clients">
+
+    <div class="container-fluid" data-aos="fade-up">
+
+        <div class="row gy-4">
+
+            <div class="col-xl-2 col-md-3 col-6 client-logo">
+                <img src="{% static 'img/clients/client-1.svg' %}" class="img-fluid" alt="">
+            </div><!-- End Client Item -->
+
+            <div class="col-xl-2 col-md-3 col-6 client-logo">
+                <img src="{% static 'img/clients/client-2.png' %}" class="img-fluid" alt="">
+            </div><!-- End Client Item -->
+
+            <div class="col-xl-2 col-md-3 col-6 client-logo">
+                <img src="{% static 'img/clients/client-3.svg' %}" class="img-fluid" alt="">
+            </div><!-- End Client Item -->
+
+            <div class="col-xl-2 col-md-3 col-6 client-logo">
+                <img src="{% static 'img/clients/client-4.png' %}" class="img-fluid" alt="">
+            </div><!-- End Client Item -->
+
+            <div class="col-xl-2 col-md-3 col-6 client-logo">
+                <img src="{% static 'img/clients/client-5.png' %}" class="img-fluid" alt="">
+            </div><!-- End Client Item -->
+
+            <div class="col-xl-2 col-md-3 col-6 client-logo">
+                <img src="{% static 'img/clients/client-6.png' %}" class="img-fluid" alt="">
+            </div><!-- End Client Item -->
+
+        </div>
+
+    </div>
+
+</section><!-- End Clients Section -->
+
+<!-- About Section - Home Page -->
+<section id="abaut" class="about">
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row align-items-xl-center gy-5">
+
+            <div class="col-xl-5 content">
+                <h3>About project</h3>
+                <h2>IRecognition: A Deep Learning Project for Image Classification</h2>
+                <p> In this project, a Convolutional Neural Network (CNN) was implemented to classify images from the
+                    CIFAR-10 dataset into ten different classes: airplane, automobile, bird, cat, deerdog, frog, horse,
+                    ship, and truck. The CNN architecture was designed using the functional API in TensorFlow/Keras.</p>
+                <a href="{% url 'images:upload_image' %}" class="read-more"><span>Let's try now</span><i class="bi bi-arrow-right"></i></a>
+            </div>
+
+            <div class="col-xl-7">
+                <div class="row gy-4 icon-boxes">
+
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="icon-box">
+                            <i class="bi bi-palette2"></i>
+                            <h3>Powerful AI Model</h3>
+                            <p>Unlock the potential of our advanced AI model trained on the CIFAR-10 dataset, capable of
+                                accurate object recognition and classification. Embrace cutting-edge technology to
+                                enhance your applications and projects.</p>
+                        </div>
+                    </div> <!-- End Icon Box -->
+
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                        <div class="icon-box">
+                            <i class="bi bi-code"></i>
+                            <h3>Easy Integration</h3>
+                            <p>Integrate our pre-trained model seamlessly into your projects with just a few lines of
+                                code. Whether you're a developer, researcher, or student, our model's simplicity makes
+                                it accessible for various applications and use cases.</p>
+                        </div>
+                    </div> <!-- End Icon Box -->
+
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
+                        <div class="icon-box">
+                            <i class="bi bi-code-slash"></i>
+                            <h3>Enhance User Experience</h3>
+                            <p>Improve user experiences by incorporating our AI model for image recognition in your web
+                                interfaces or mobile apps. Deliver more personalized and interactive content that
+                                captivates your audience and keeps them engaged.</p>
+                        </div>
+                    </div> <!-- End Icon Box -->
+
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
+                        <div class="icon-box">
+                            <i class="bi bi-graph-up-arrow"></i>
+                            <h3>Optimize Performance</h3>
+                            <p>Boost your applications' performance and accuracy with our model's impressive results.
+                                Leverage the comprehensive graphs of loss and accuracy over training and validation data
+                                to monitor and fine-tune your projects for optimal results.</p>
+                        </div>
+                    </div> <!-- End Icon Box -->
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section><!-- End About Section -->
+
+<!-- Stats Section - Home Page -->
+<section id="stats" class="stats">
+
+    <img src="{% static 'img/stats-bg.jpeg' %}" alt="" data-aos="fade-in">
+
+    <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+            <div class="col-lg-3 col-md-6">
+                <div class="stats-item text-center w-100 h-100">
+                    <span data-purecounter-start="0" data-purecounter-end="{{ hours_passed }}"
+                        data-purecounter-duration="1" class="purecounter"></span>
+                    <p>Hours Of Support</p>
+                </div>
+            </div><!-- End Stats Item -->
+
+            <div class="col-lg-3 col-md-6">
+                <div class="stats-item text-center w-100 h-100">
+                    <span data-purecounter-start="0" data-purecounter-end="{{ statistics.total }}"
+                        data-purecounter-duration="1" class="purecounter"></span>
+                    <p>Total</p>
+                </div>
+            </div><!-- End Stats Item -->
+
+            <div class="col-lg-3 col-md-6">
+                <div class="stats-item text-center w-100 h-100">
+                    <span data-purecounter-start="0" data-purecounter-end="{{ statistics.count_successful }}"
+                        data-purecounter-duration="1" class="purecounter"></span>
+                    <p>Count successful</p>
+                </div>
+            </div><!-- End Stats Item -->
+
+            <div class="col-lg-3 col-md-6">
+                <div class="stats-item text-center w-100 h-100">
+                    <span data-purecounter-start="0" data-purecounter-end="1" data-purecounter-duration="0"
+                        class="purecounter"></span>
+                    <p>Workers</p>
+                </div>
+            </div><!-- End Stats Item -->
+
+        </div>
+
+    </div>
+
+</section><!-- End Stats Section -->
+
+<!-- Portfolio Section - Home Page -->
+<section id="portfolio" class="portfolio">
+
+    <!--  Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Results</h2>
+    </div><!-- End Section Title -->
+
+    <div class="container">
+
+        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+
+            <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+                <li data-filter="*" class="filter-active">All</li>
+                <li data-filter=".filter-app">App</li>
+                <li data-filter=".filter-product">Card</li>
+                <li data-filter=".filter-branding">Web</li>
+            </ul><!-- End Portfolio Filters -->
+
+            <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+
+                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+                    <img src="{% static 'img/masonry-portfolio/masonry-portfolio-1.jpg' %}" class="img-fluid" alt="">
+                    <div class="portfolio-info">
+                        <h4>App 1</h4>
+                        <p>Lorem ipsum, dolor sit</p>
+                        <a href="{% static 'img/masonry-portfolio/masonry-portfolio-1.jpg' %}" title="App 1"
+                            data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
+                                class="bi bi-zoom-in"></i></a>
+                        <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                                class="bi bi-link-45deg"></i></a>
+                    </div>
+                </div><!-- End Portfolio Item -->
+
+                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+                    <img src="{% static 'img/masonry-portfolio/masonry-portfolio-2.jpg' %}" class="img-fluid" alt="">
+                    <div class="portfolio-info">
+                        <h4>Product 1</h4>
+                        <p>Lorem ipsum, dolor sit</p>
+                        <a href="{% static 'img/masonry-portfolio/masonry-portfolio-2.jpg' %}" title="Product 1"
+                            data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i
+                                class="bi bi-zoom-in"></i></a>
+                        <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                                class="bi bi-link-45deg"></i></a>
+                    </div>
+                </div><!-- End Portfolio Item -->
+
+                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+                    <img src="{% static 'img/masonry-portfolio/masonry-portfolio-3.jpg' %}" class="img-fluid" alt="">
+                    <div class="portfolio-info">
+                        <h4>Branding 1</h4>
+                        <p>Lorem ipsum, dolor sit</p>
+                        <a href="{% static 'img/masonry-portfolio/masonry-portfolio-3.jpg' %}" title="Branding 1"
+                            data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i
+                                class="bi bi-zoom-in"></i></a>
+                        <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                                class="bi bi-link-45deg"></i></a>
+                    </div>
+                </div><!-- End Portfolio Item -->
+
+                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+                    <img src="{% static 'img/masonry-portfolio/masonry-portfolio-4.jpg' %}" class="img-fluid" alt="">
+                    <div class="portfolio-info">
+                        <h4>App 2</h4>
+                        <p>Lorem ipsum, dolor sit</p>
+                        <a href="{% static 'img/masonry-portfolio/masonry-portfolio-4.jpg' %}" title="App 2"
+                            data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
+                                class="bi bi-zoom-in"></i></a>
+                        <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                                class="bi bi-link-45deg"></i></a>
+                    </div>
+                </div><!-- End Portfolio Item -->
+
+                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+                    <img src="{% static 'img/masonry-portfolio/masonry-portfolio-5.jpg' %}" class="img-fluid" alt="">
+                    <div class="portfolio-info">
+                        <h4>Product 2</h4>
+                        <p>Lorem ipsum, dolor sit</p>
+                        <a href="{% static 'img/masonry-portfolio/masonry-portfolio-5.jpg' %}" title="Product 2"
+                            data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i
+                                class="bi bi-zoom-in"></i></a>
+                        <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                                class="bi bi-link-45deg"></i></a>
+                    </div>
+                </div><!-- End Portfolio Item -->
+
+                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+                    <img src="{% static 'img/masonry-portfolio/masonry-portfolio-6.jpg' %}" class="img-fluid" alt="">
+                    <div class="portfolio-info">
+                        <h4>Branding 2</h4>
+                        <p>Lorem ipsum, dolor sit</p>
+                        <a href="{% static 'img/masonry-portfolio/masonry-portfolio-6.jpg' %}" title="Branding 2"
+                            data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i
+                                class="bi bi-zoom-in"></i></a>
+                        <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                                class="bi bi-link-45deg"></i></a>
+                    </div>
+                </div><!-- End Portfolio Item -->
+
+                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+                    <img src="img/masonry-portfolio/masonry-portfolio-7.jpg" class="img-fluid" alt="">
+                    <div class="portfolio-info">
+                        <h4>App 3</h4>
+                        <p>Lorem ipsum, dolor sit</p>
+                        <a href="img/masonry-portfolio/masonry-portfolio-7.jpg" title="App 3"
+                            data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
+                                class="bi bi-zoom-in"></i></a>
+                        <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                                class="bi bi-link-45deg"></i></a>
+                    </div>
+                </div><!-- End Portfolio Item -->
+
+                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+                    <img src="img/masonry-portfolio/masonry-portfolio-8.jpg" class="img-fluid" alt="">
+                    <div class="portfolio-info">
+                        <h4>Product 3</h4>
+                        <p>Lorem ipsum, dolor sit</p>
+                        <a href="img/masonry-portfolio/masonry-portfolio-8.jpg" title="Product 3"
+                            data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i
+                                class="bi bi-zoom-in"></i></a>
+                        <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                                class="bi bi-link-45deg"></i></a>
+                    </div>
+                </div><!-- End Portfolio Item -->
+
+                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+                    <img src="img/masonry-portfolio/masonry-portfolio-9.jpg" class="img-fluid" alt="">
+                    <div class="portfolio-info">
+                        <h4>Branding 3</h4>
+                        <p>Lorem ipsum, dolor sit</p>
+                        <a href="img/masonry-portfolio/masonry-portfolio-9.jpg" title="Branding 2"
+                            data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i
+                                class="bi bi-zoom-in"></i></a>
+                        <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                                class="bi bi-link-45deg"></i></a>
+                    </div>
+                </div><!-- End Portfolio Item -->
+
+            </div><!-- End Portfolio Container -->
+
+        </div>
+
+    </div>
+
+</section><!-- End Portfolio Section -->
+
+
+<!-- Team Section - Home Page -->
+<section id="team" class="team">
+
+    <!--  Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Team</h2>
+    </div><!-- End Section Title -->
+
+    <div class="container">
+
+        <div class="row gy-5">
+
+            <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="100">
+            </div><!-- End Team Member -->
+
+            <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="200">
+                <div class="member-img">
+                    <img src="{% static 'img/team/team-me.jpg' %}" class="img-fluid" alt="">
+                    <div class="social">
+                        <a href="https://www.linkedin.com/in/ihor-voitiuk/"><i class="bi bi-linkedin"></i></a>
+                        <a href="https://t.me/ihor_vt" class="telegram" target="_blank"><i
+                                class="bi bi-telegram"></i></a>
+                        <a href="https://github.com/ihor-vt/"><i class="bi bi-github"></i></a>
+                    </div>
+                </div>
+                <div class="member-info text-center">
+                    <h4>Ihor Voitiuk</h4>
+                    <span>Python Developer</span>
+                    <p>"The only way to do great work is to love what you do." - Steve Jobs.</p>
+                </div>
+            </div><!-- End Team Member -->
+
+            <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="300">
+            </div><!-- End Team Member -->
+
+            <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="400">
+            </div><!-- End Team Member -->
+
+            <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="500">
+            </div><!-- End Team Member -->
+
+            <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="600">
+            </div><!-- End Team Member -->
+
+        </div>
+
+    </div>
+
+</section><!-- End Team Section -->
+
+<!-- Contact Section - Home Page -->
+<section id="contact" class="contact">
+
+    <!--  Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Contact</h2>
+        <p>IRecognition Team is waiting for your message.</p>
+    </div><!-- End Section Title -->
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+            <div class="col-lg-6">
+
+                <div class="row gy-4">
+                    <div class="col-md-6">
+                        <div class="info-item" data-aos="fade" data-aos-delay="200">
+                            <i class="bi bi-geo-alt"></i>
+                            <h3>Address</h3>
+                            <p>Ukraine</p>
+                        </div>
+                    </div><!-- End Info Item -->
+
+                    <div class="col-md-6">
+                        <div class="info-item" data-aos="fade" data-aos-delay="300">
+                            <i class="bi bi-telephone"></i>
+                            <h3>Email Us</h3>
+                            <p>ihorvoitiuk@gmail.com</p>
+                        </div>
+                    </div><!-- End Info Item -->
+                </div>
+
+            </div>
+
+            <div class="col-lg-6">
+                <form action="/contact/" method="post" class="email-form" data-aos="fade-up"
+                    data-aos-delay="200">
+                    {% csrf_token %}
+                    <div class="row gy-4">
+                        <div class="col-md-6">
+                            {{ contact_form.name }}
+                        </div>
+                        <div class="col-md-6 ">
+                            {{ contact_form.email }}
+                        </div>
+                        <div class="col-md-12">
+                            {{ contact_form.subject }}
+                        </div>
+                        <div class="col-md-12">
+                            {{ contact_form.message }}
+                        </div>
+                        {% if sent %}
+                        <div class="col-md-12 text-center">
+                            <div class="loading">Loading</div>
+                            <div class="error-message"></div>
+                            <div class="sent-message">Your message has been sent. Thank you!</div>
+                        {% endif %}
+                            <button type="submit">Send Message</button>
+                        </div>
+                    </div>
+                    </form>
+            </div><!-- End Contact Form -->
+
+        </div>
+
+    </div>
+
+</section><!-- End Contact Section -->
+
+{% endblock %}

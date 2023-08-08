@@ -1,0 +1,152 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>IRecognition</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.png' %}">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'css/main.css' %}" rel="stylesheet">
+  {% block head %}{% endblock %}
+</head>
+
+<body class="index-page" data-bs-spy="scroll" data-bs-target="#navmenu">
+  {% if messages %}
+    <div>
+        {% for message in messages %}
+        <div {% if message.tags %} class="alert-{{ message.tags }} text-center" {% endif %}>{{ message }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if form.errors %}
+    <div class="alert alert-danger text-center" role="alert">
+        <span>{{ form.non_field_errors }}</span>
+    </div>
+    {% endif %}
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+
+      <a href="/" class="logo d-flex align-items-center me-auto me-xl-0">
+        <h1>IRecognition</h1>
+        <span>.</span>
+      </a>
+
+      <!-- Nav Menu -->
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="/" class="active">Home</a></li>
+          <li><a href="/#abaut">About</a></li>
+          <li><a href="/#portfolio">Results</a></li>
+          <li><a href="/#team">Team</a></li>
+          <li><a href="/#contact">Contact</a></li>
+          {% if user.is_authenticated %}
+          <li><p>{{ user.email|slice:"0:user.email|find:'@'" }}</p></li>
+          <li><a href="{% url 'users:logout' %}" class="active">Logout</a></li>
+          {% else %}
+          <li><a href="{% url 'users:registration' %}" class="active">Register</a></li>
+          <li><a href="{% url 'users:login' %}" class="active">Login</a></li>
+          {% endif %}
+        </ul>
+
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav><!-- End Nav Menu -->
+
+      <a class="btn-getstarted" href="{% url 'images:upload_image' %}">Let's try now</a> 
+
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main" style="min-height: calc(100vh - 100px);">
+    {% block content %}
+    {% endblock %}
+  </main>
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-5 col-md-12 footer-about">
+          <a href="index.html" class="logo d-flex align-items-center">
+            <span>IRecognition</span>
+          </a>
+          <p>MyCIFAR-10-Classifier: A Deep Learning Project for Image Classification" This repository contains code for training a deep learning model on the CIFAR-10 dataset and using it in a web interface for image classification.</p>
+          <div class="social-links d-flex mt-4">
+            <a href="https://www.linkedin.com/in/ihor-voitiuk/"><i class="bi bi-linkedin"></i></a>
+            <a href="https://t.me/ihor_vt" class="telegram" target="_blank"><i class="bi bi-telegram"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-6 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+          <h4>Contact Us</h4>
+          <p>Ukraine</p>
+          <p><strong>Email:</strong>
+                <a aria-label="Email Ihor" href="mailto:ihorvoitiukk@gmail.com" target="_blank" data-position="top" data-tooltip="Email Ihor" class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i class="fa fa-envelope"></i></a><a aria-label="Email Ihor" href="mailto:ihorvoitiukk@gmail.com" class="hoverline">ihorvoitiukk@gmail.com</a>
+              </p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>&copy; <span>Copyright</span> <strong class="px-1"></strong> <span><a href="https://github.com/ihor-vt">Ihor Voitiuk</a></span></p>
+    </div>
+
+  </footer><!-- End Footer -->
+
+  <!-- Scroll Top Button -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'vendor/purecounter/purecounter_vanilla.js' %}"></script>
+  <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'vendor/aos/aos.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'js/main.js' %}"></script>
+  {% block script %}
+  {% endblock %}
+</body>
+</html>

@@ -1,0 +1,32 @@
+{% extends "mainpage/base.html" %}
+{% load static %}
+
+{% block head%}
+<link href="{% static 'css/image_upload.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<br><br><br>
+<div class="wrapper">
+    <div class="container">
+      <h1>Upload a file</h1>
+      <div class="upload-container">
+        <div class="border-container">
+          <div class="icons fa-4x">
+            <i class="fas fa-file-image" data-fa-transform="shrink-3 down-2 left-6 rotate--45"></i>
+            <i class="fas fa-file-alt" data-fa-transform="shrink-2 up-4"></i>
+            <i class="fas fa-file-pdf" data-fa-transform="shrink-3 down-2 right-6 rotate-45"></i>
+          </div>
+          <!--<input type="file" id="file-upload">-->
+          <p>Drag and drop files here, or 
+            <a href="#" id="file-browser">browse</a> your computer.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'js/image_upload.js' %}"></script>
+{% endblock %}
