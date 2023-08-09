@@ -14,6 +14,73 @@ Our project goes beyond the backend implementation of a CNN. We have created a c
 ![Web Interface Screenshot](/img/web-i.png)
 ![Web Interface Screenshot](/img/web-i-upload.png)
 
+## Getting Started:
+
+To run this project locally, follow these steps:
+
+### Prerequisites:
+
+- Python (3.10 or higher)
+- Docker (if you want to use Docker for deployment)
+
+### Installation:
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/ihor-vt/Web-Based-Image-Classification-with-CIFAR-10-Datase.git
+   cd your-repo
+   ```
+
+2. Create a virtual environment (recommended):
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+
+3. Install the required packages:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. Set up environment variables:
+   - Rename `.env.example` to `.env` in the project root.
+   - Replace the placeholder values in `.env` with your actual secrets and configurations.
+
+### Running the Application:
+
+1. Change you dir to irecognition:
+   ```bash
+   cd irecognition
+   ```
+
+2. Apply database migrations:
+   ```bash
+   python manage.py migrate
+   ```
+
+3. Start the development server:
+   ```bash
+   python manage.py runserver
+   ```
+
+4. Access the web interface in your browser at http://localhost:8000.
+
+### Running with Docker:
+
+1. Build the Docker image:
+   ```bash
+   docker build -t cifar-10-image-classifier .
+   ```
+
+2. Run the Docker container:
+   ```bash
+   docker run -p 8000:8000 --env-file .env cifar-10-image-classifier
+   ```
+
+3. Access the web interface in your browser at http://localhost:8000.
+
+Happy coding and image classification!
+
 ## Architecture:
 The CNN architecture consists of a well-structured sequence of layers, each contributing to accurate image classification:
 
