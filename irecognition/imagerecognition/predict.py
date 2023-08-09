@@ -8,7 +8,9 @@ from PIL import Image as PILImage
 
 model_path = settings.MODEL_PATH
 model = load_model(model_path)
-class_names = ['Airplane', 'Automobile', 'Bird', 'Cat', 'Deer', 'Dog', 'Frog', 'Horse', 'Ship', 'Truck']
+class_names = [
+    'Airplane', 'Automobile', 'Bird', 'Cat', 'Deer',
+    'Dog', 'Frog', 'Horse', 'Ship', 'Truck']
 
 
 def preprocess_image(image_path):

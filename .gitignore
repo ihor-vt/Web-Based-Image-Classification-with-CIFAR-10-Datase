@@ -3,3 +3,4 @@
 *.sqlite3
 *.pytest_cache
 fly.toml
+*.DS_Store
