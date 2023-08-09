@@ -5,3 +5,4 @@ fly.toml
 **.djcache
 .pytest_cache/
 train_models/
+img/
