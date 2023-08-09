@@ -65,9 +65,9 @@ def registration(request):
                     request, "Such an account is already registered")
                 return redirect("users:registration")
 
-            hashed_password = make_password(password)
+            hashed_password = make_password(password2)
 
-            User.objects.create_user(
+            user = User.objects.create_user(
                 email=email,
                 password=hashed_password,
             )

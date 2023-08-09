@@ -6,24 +6,30 @@
 {% endblock %}
 
 {% block content %}
-<br><br><br>
+<br><br><br> 
 <div class="wrapper">
-    <div class="container">
-      <h1>Upload a file</h1>
-      <div class="upload-container">
-        <div class="border-container">
-          <div class="icons fa-4x">
-            <i class="fas fa-file-image" data-fa-transform="shrink-3 down-2 left-6 rotate--45"></i>
-            <i class="fas fa-file-alt" data-fa-transform="shrink-2 up-4"></i>
-            <i class="fas fa-file-pdf" data-fa-transform="shrink-3 down-2 right-6 rotate-45"></i>
-          </div>
-          <!--<input type="file" id="file-upload">-->
-          <p>Drag and drop files here, or 
-            <a href="#" id="file-browser">browse</a> your computer.</p>
+  <div class="container">
+    <h1>Upload image</h1>
+    <div class="upload-container">
+      <div class="border-container">
+        <div class="icons fa-4x">
+          <i class="fas fa-file-image" data-fa-transform="shrink-3 down-2 left-6 rotate--45"></i>
+          <i class="fas fa-file-alt" data-fa-transform="shrink-2 up-4"></i>
+          <i class="fas fa-file-pdf" data-fa-transform="shrink-3 down-2 right-6 rotate-45"></i>
+        </div>
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <input type="file" id="file-upload" name="image">
+          <!-- <p>Drag and drop files here, or 
+            <input href="#" id="file-browser">browse> your computer.</p> -->
+            <br><br><br>
+            <input type="submit" value="Predict">
+          </form>
         </div>
       </div>
-    </div>
+      <br>
   </div>
+</div>
   <br>
 {% endblock %}
 

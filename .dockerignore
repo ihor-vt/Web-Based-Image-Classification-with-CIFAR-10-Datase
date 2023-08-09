@@ -1,0 +1,7 @@
+fly.toml
+.git/
+*.sqlite3
+**/.env
+**.djcache
+.pytest_cache
+train_models

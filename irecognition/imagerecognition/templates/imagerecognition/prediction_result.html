@@ -1,0 +1,17 @@
+{% extends "mainpage/base.html" %}
+{% load static %}
+
+{% block head%}
+<link href="{% static 'css/image_upload.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<br ><br ><br > <br >
+<div class="text-center">
+    <h1>Prediction Result</h1>
+    <p>Predicted Class: {{ predicted_class }}</p>
+    <br >
+    <a href="{% url 'images:upload_image' %}">Try again</a>
+</div>
+<br>
+{% endblock %}

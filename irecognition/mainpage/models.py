@@ -22,7 +22,6 @@ class UserImage(models.Manager):
 
 
 class Image(models.Model):
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='images/')
     image_class = models.CharField(max_length=15, null=True)
 
@@ -56,6 +55,13 @@ class Statistics(models.Model):
         hours_passed = (
             current_datetime - default_datetime).total_seconds() / 3600
         return hours_passed
+
+    @staticmethod
+    def update_statistics():
+        stat = Statistics.objects.first()
+        stat.total += 1
+        stat.count_successful += 1
+        stat.save()
 
 
 class ContactsUs(models.Model):

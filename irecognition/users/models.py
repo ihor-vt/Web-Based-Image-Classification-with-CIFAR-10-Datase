@@ -11,10 +11,10 @@ class UserManager(BaseUserManager):
     def create_user(
             self,
             email: str,
-            password: str | None = None,
+            password: str = None,
             **extra_fields) -> "User":
         """Create and save a new user.
-        
+
         User can be created without password to support passwordless
         authentication.
 
@@ -33,8 +33,7 @@ class UserManager(BaseUserManager):
 
         email = self.normalize_email(email)
         user = self.model(email=email, **extra_fields)
-
-        if password is not None:
+        if password:
             user.set_password(password)
 
         user.save()
