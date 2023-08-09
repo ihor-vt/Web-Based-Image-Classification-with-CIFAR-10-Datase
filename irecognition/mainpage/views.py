@@ -1,15 +1,23 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages as ms
-from django.utils import timezone
 from django.core.mail import send_mail
 
 from irecognition import settings
 from .forms import ContactForm, SubscribeEmailNewsletterForm
 from .messages_for_visiters import thank_message, subscribe_message
-from .models import Image, Statistics, Model
+from .models import Statistics
 
 
 def main_page(request):
+    """
+    The main_page function is the main page of the website.
+    It renders a template with a contact form and statistics
+    about how many people have visited the site,
+    and how many hours have passed since it was created.
+
+    :param request: Get the request object
+    :return: A rendered template
+    """
     statistics = Statistics.objects.first()
     hours_passed = Statistics.hours_passed_since_default_date()
 

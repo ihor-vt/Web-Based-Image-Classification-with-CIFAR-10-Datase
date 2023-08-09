@@ -3,6 +3,8 @@ from django.contrib.auth import get_user_model
 
 
 class CustomUserBackend(ModelBackend):
+    """Custom user backend implementation for Django models
+    that support custom authentication"""
     def authenticate(self, request, email=None, password=None, **kwargs):
         UserModel = get_user_model()
         print(f">> UserModel: {UserModel}")
@@ -10,8 +12,6 @@ class CustomUserBackend(ModelBackend):
             user = UserModel.objects.get(email=email)
         except UserModel.DoesNotExist:
             return None
-        print(f">> User: {user}")
-        print(f">>> user.check_password(password): {user.check_password(password)}")
         if user.check_password(password):
             return user
         return None

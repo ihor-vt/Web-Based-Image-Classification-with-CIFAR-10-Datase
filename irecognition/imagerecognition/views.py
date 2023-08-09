@@ -10,6 +10,16 @@ from mainpage.models import Statistics
 
 
 def upload_image(request):
+    """
+    The upload_image function is responsible for handling the image upload
+    form. It will save the uploaded image to a temporary file and then pass it
+    to the predict_image function, which will return a prediction of what class
+    the image belongs to. The prediction result is then rendered in
+    an HTML page.
+
+    :param request: Get the http request that was sent to this view
+    :return: A prediction result page
+    """
     if request.method == 'POST':
         form = UploadImageForm(request.POST, request.FILES)
         if form.is_valid():

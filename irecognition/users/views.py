@@ -17,6 +17,7 @@ from .forms import (
 
 
 class ResetPasswordView(SuccessMessageMixin, PasswordResetView):
+    """Poroccess Password Reset"""
     template_name = "users/password_reset.html"
     email_template_name = "users/password_reset_email.html"
     html_email_template_name = "users/password_reset_email.html"

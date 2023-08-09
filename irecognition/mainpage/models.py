@@ -7,6 +7,8 @@ from users.models import User
 
 
 class UserImage(models.Manager):
+    """: A custom manager for creating Image instances
+    with additional statistics updates."""
     def create(self, count_successful=0, count_negative=0, **kwargs):
         user_mage = self.model(**kwargs)
         user_mage.save()
@@ -22,6 +24,8 @@ class UserImage(models.Manager):
 
 
 class Image(models.Model):
+    """Represents an image with an associated image file
+    and a classification label."""
     image = models.ImageField(upload_to='images/')
     image_class = models.CharField(max_length=15, null=True)
 
@@ -32,6 +36,7 @@ class Image(models.Model):
 
 
 class Model(models.Model):
+    """Represents a model with a name field."""
     name = models.CharField(max_length=80, null=True)
 
     def __str__(self) -> str:
@@ -39,6 +44,10 @@ class Model(models.Model):
 
 
 class Statistics(models.Model):
+    """Stores statistics related to successful and negative image
+    classifications, along with a default developer value. Provides
+    methods to calculate hours passed since a default date and update
+    statistics."""
     total = models.IntegerField(default=0)
     count_successful = models.IntegerField(default=0)
     count_negative = models.IntegerField(default=0)
@@ -65,6 +74,8 @@ class Statistics(models.Model):
 
 
 class ContactsUs(models.Model):
+    """Represents user contact information, including name,
+    email, subject, message, and date of submission."""
     name = models.CharField(max_length=100)
     email = models.EmailField()
     subject = models.CharField(max_length=100)
@@ -76,6 +87,7 @@ class ContactsUs(models.Model):
 
 
 class SubscribeEmailNewsletter(models.Model):
+    """Stores email addresses for newsletter subscription."""
     email = models.EmailField(unique=True)
 
     def __str__(self) -> str:

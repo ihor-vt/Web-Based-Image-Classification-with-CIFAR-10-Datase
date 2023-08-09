@@ -3,6 +3,7 @@ from django.core.validators import EmailValidator
 
 
 class RegistrationForm(forms.Form):
+    """Registration Form"""
     email = forms.EmailField(
         label="Email",
         validators=[EmailValidator()],
@@ -44,6 +45,7 @@ class RegistrationForm(forms.Form):
 
 
 class LoginForm(forms.Form):
+    """Login Form."""
     email = forms.EmailField(
         label="Email",
         validators=[EmailValidator()],
