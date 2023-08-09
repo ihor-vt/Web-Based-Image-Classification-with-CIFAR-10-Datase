@@ -11,4 +11,4 @@ COPY . $APP_HOME/
 
 EXPOSE 8000
 
-CMD ["python", "tesla_project/manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["python", "irecognition/manage.py", "runserver", "0.0.0.0:8000"]

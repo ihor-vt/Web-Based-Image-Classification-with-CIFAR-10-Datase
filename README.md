@@ -1,27 +1,41 @@
-**Project Title: CIFAR-10 Image Classification with Convolutional Neural Network**
+# Project Title: CIFAR-10 Image Classification with Convolutional Neural Network
 
-**Description:**
-In this project, a Convolutional Neural Network (CNN) was implemented to classify images from the CIFAR-10 dataset into ten different classes: airplane, automobile, bird, cat, deerdog, frog, horse, ship, and truck. The CNN architecture was designed using the functional API in TensorFlow/Keras.
+# Docker Hub:
+```
+docker push icoderp/irecognition:tagname
+```
 
-**Architecture:**
-The CNN architecture consists of several layers:
-1. Input layer: Accepts 32x32 color images.
-2. Convolutional layers: Two sets of Conv2D layers with 32, 64, and 128 filters respectively, followed by batch normalization and ReLU activation.
-3. Max Pooling layers: MaxPooling2D layers are used after each set of convolutional layers to reduce spatial dimensions.
-4. Flatten layer: Flattens the output from the convolutional layers for input into the fully connected layers.
-5. Fully connected layers: Two dense layers with 1024 neurons and ReLU activation are used as hidden layers.
-6. Output layer: A dense layer with softmax activation to predict the probability of each class.
+## Description:
+In this project, we have implemented a Convolutional Neural Network (CNN) to classify images from the CIFAR-10 dataset into ten distinct classes: airplane, automobile, bird, cat, deer, dog, frog, horse, ship, and truck. Leveraging the power of deep learning and computer vision, our CNN architecture demonstrates efficient image recognition and classification.
 
-**Training and Tuning:**
-The model was trained using the Adam optimizer with sparse categorical cross-entropy loss. The initial training was performed for 55 epochs on the original training dataset. Data augmentation techniques, such as width shift, height shift, and horizontal flip, were applied to generate augmented training data.
+## Web Interface for Image Classification:
+Our project goes beyond the backend implementation of a CNN. We have created a captivating web interface using Django, enabling users to interact with our image classifier seamlessly. The intuitive design and user-friendly interface allow anyone to upload an image and receive real-time predictions about the object contained in the image.
 
-**Results:**
-The model achieved an impressive test accuracy of approximately 86.38%. The use of data augmentation enhanced the model's robustness and generalization capability. 
+![Web Interface Screenshot](/img/web-i.png)
+![Web Interface Screenshot](/img/web-i-upload.png)
 
-**Graphs:**
-Below are the graphs of loss and accuracy on training and validation data over the epochs:
+## Architecture:
+The CNN architecture consists of a well-structured sequence of layers, each contributing to accurate image classification:
+
+1. Input Layer: Accepts 32x32 color images.
+2. Convolutional Layers: Two sets of Conv2D layers (32, 64, and 128 filters) with batch normalization and ReLU activation.
+3. Max Pooling Layers: Spatial dimensions are reduced using MaxPooling2D after convolutional layers.
+4. Flatten Layer: Converts the convolutional output into a format suitable for fully connected layers.
+5. Fully Connected Layers: Two hidden dense layers (1024 neurons) with ReLU activation.
+6. Output Layer: A dense layer with softmax activation to predict class probabilities.
+
+## Training and Tuning:
+We trained our model using the Adam optimizer and sparse categorical cross-entropy loss. Initial training was conducted for 55 epochs on the original training dataset. To enhance the model's robustness, we applied data augmentation techniques like width shift, height shift, and horizontal flip, thereby generating augmented training data.
+
+## Results:
+The model has demonstrated impressive performance, achieving a test accuracy of approximately 86.38%. Data augmentation has substantially contributed to improving the model's resilience and its ability to generalize well to unseen data.
+
+## Graphs:
+Here are visual representations of the training and validation progress over the epochs:
 
 ![Graph Loss and Accuracy](/img/graph_loss_accuracy.png)
 
-**Conclusion:**
-The CNN architecture, along with data augmentation, proved to be effective in accurately classifying CIFAR-10 images. The model achieved good accuracy and demonstrated resilience to variations in the input data. The project provides a comprehensive understanding of the image classification process using CNNs and data augmentation techniques.
+## Conclusion:
+Our CNN architecture, coupled with strategic data augmentation, showcases the efficacy of deep learning in image classification. The model's accuracy and adaptability are noteworthy, making it a robust solution for classifying CIFAR-10 images. Moreover, our user-friendly web interface brings the power of this model to your fingertips, enabling easy and intuitive image classification.
+
+By exploring this project, you gain valuable insights into CNNs, data augmentation, and the practical implementation of image classification in real-world scenarios.

@@ -3,5 +3,5 @@ fly.toml
 *.sqlite3
 **/.env
 **.djcache
-.pytest_cache
-train_models
+.pytest_cache/
+train_models/
