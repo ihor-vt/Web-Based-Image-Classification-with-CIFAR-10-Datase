@@ -1,10 +1,5 @@
 # Project Title: CIFAR-10 Image Classification with Convolutional Neural Network
 
-# Docker Hub:
-```
-docker push icoderp/irecognition:tagname
-```
-
 ## Description:
 In this project, we have implemented a Convolutional Neural Network (CNN) to classify images from the CIFAR-10 dataset into ten distinct classes: airplane, automobile, bird, cat, deer, dog, frog, horse, ship, and truck. Leveraging the power of deep learning and computer vision, our CNN architecture demonstrates efficient image recognition and classification.
 
@@ -78,6 +73,21 @@ To run this project locally, follow these steps:
    ```
 
 3. Access the web interface in your browser at http://localhost:8000.
+
+### Pull and Run Docker Image:
+
+1. Pull the Docker image:
+   ```bash
+    docker pull icoderp/irecognition:tagname
+   ```
+
+2. Run the Docker container:
+   ```bash
+    docker run -p 8000:8000 --env-file .env icoderp/irecognition:tagname
+   ```
+
+3. Access the web interface in your browser at http://localhost:8000.
+
 
 Happy coding and image classification!
 
