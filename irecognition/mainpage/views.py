@@ -5,7 +5,6 @@ from django.core.mail import send_mail
 
 from irecognition import settings
 from .forms import ContactForm, SubscribeEmailNewsletterForm
-from .tasks import contacts_us
 from .messages_for_visiters import thank_message, subscribe_message
 from .models import Image, Statistics, Model
 
