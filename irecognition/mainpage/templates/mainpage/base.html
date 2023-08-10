@@ -32,19 +32,6 @@
 </head>
 
 <body class="index-page" data-bs-spy="scroll" data-bs-target="#navmenu">
-  {% if messages %}
-    <div>
-        {% for message in messages %}
-        <div {% if message.tags %} class="alert-{{ message.tags }} text-center" {% endif %}>{{ message }}</div>
-        {% endfor %}
-    </div>
-    {% endif %}
-
-    {% if form.errors %}
-    <div class="alert alert-danger text-center" role="alert">
-        <span>{{ form.non_field_errors }}</span>
-    </div>
-    {% endif %}
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
     <div class="container-fluid d-flex align-items-center justify-content-between">
@@ -80,6 +67,19 @@
   </header><!-- End Header -->
 
   <main id="main" style="min-height: calc(100vh - 100px);">
+    {% if messages %}
+    <div>
+        {% for message in messages %}
+        <div {% if message.tags %} class="alert-{{ message.tags }} text-center" {% endif %}>{{ message }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if form.errors %}
+    <div class="alert alert-danger text-center" role="alert">
+        <span>{{ form.non_field_errors }}</span>
+    </div>
+    {% endif %}
     {% block content %}
     {% endblock %}
   </main>

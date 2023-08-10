@@ -2,7 +2,6 @@ import os
 import tempfile
 from django.shortcuts import render
 from django.contrib import messages
-from django.core.files.uploadedfile import SimpleUploadedFile
 
 from .forms import UploadImageForm
 from .predict import predict_image
@@ -21,6 +20,7 @@ def upload_image(request):
     :return: A prediction result page
     """
     if request.method == 'POST':
+
         form = UploadImageForm(request.POST, request.FILES)
         if form.is_valid():
             image = form.cleaned_data['image']
@@ -55,9 +55,29 @@ def upload_image(request):
                 "The file you uploaded\
                 was either not an image or a corrupted image."
                 )
-            # print(f">>> UploadImageForm error: {form.errors}")
     else:
         form = UploadImageForm()
+    return render(
+        request,
+        'imagerecognition/image_upload.html',
+        {'form': form})
+
+
+def upload_image_button(request):
+    if request.method == 'POST':
+        if 'true_button' in request.POST:
+            Statistics.update_successful()
+            messages.info(
+                request,
+                "Thank you, we will take your application into consideration."
+                )
+        elif 'false_button' in request.POST:
+            Statistics.update_negative()
+            messages.info(
+                request,
+                "Thank you, we will take your application into consideration."
+                )
+    form = UploadImageForm()
     return render(
         request,
         'imagerecognition/image_upload.html',

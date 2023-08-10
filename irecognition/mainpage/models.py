@@ -69,7 +69,18 @@ class Statistics(models.Model):
     def update_statistics():
         stat = Statistics.objects.first()
         stat.total += 1
+        stat.save()
+
+    @staticmethod
+    def update_successful():
+        stat = Statistics.objects.first()
         stat.count_successful += 1
+        stat.save()
+
+    @staticmethod
+    def update_negative():
+        stat = Statistics.objects.first()
+        stat.count_negative += 1
         stat.save()
 
 

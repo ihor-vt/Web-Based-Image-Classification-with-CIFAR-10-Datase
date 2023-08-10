@@ -36,10 +36,13 @@
                     <div class="text-center">
                         <h2 class="card-subtitle mb-2 text-muted">{{ predicted_class }}</h2>
                     </div>
-                    <div class="btn-group">
-                        <button class="btn btn-danger">False</button>
-                        <button class="btn btn-success">True</button>
-                    </div>
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="btn-group">
+                            <button class="btn btn-danger" name="false_button">False</button>
+                            <button class="btn btn-success" name="true_button">True</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
