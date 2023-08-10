@@ -1,8 +1,8 @@
-from django.shortcuts import render
-from django.conf import settings
 import os
 import tempfile
-from PIL import Image as PILImage
+from django.shortcuts import render
+from django.contrib import messages
+from django.core.files.uploadedfile import SimpleUploadedFile
 
 from .forms import UploadImageForm
 from .predict import predict_image
@@ -32,16 +32,30 @@ def upload_image(request):
 
             prediction = predict_image(temp_file_path)
 
+            # Read the content of the temporary file
+            with open(temp_file_path, 'rb') as temp_file_content:
+                content = temp_file_content.read()
+
+            context = {
+                'predicted_class': prediction,
+                'uploaded_image': content,
+            }
+
             # Clean up the temporary file
             os.remove(temp_file_path)
             Statistics.update_statistics()
             return render(
                 request,
                 'imagerecognition/prediction_result.html',
-                {'predicted_class': prediction}
+                context,
             )
         else:
-            print(f">>> form error: {form.errors}")
+            messages.warning(
+                request,
+                "The file you uploaded\
+                was either not an image or a corrupted image."
+                )
+            # print(f">>> UploadImageForm error: {form.errors}")
     else:
         form = UploadImageForm()
     return render(

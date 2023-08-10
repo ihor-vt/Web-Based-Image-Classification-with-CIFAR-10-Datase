@@ -1,17 +1,60 @@
 {% extends "mainpage/base.html" %}
 {% load static %}
+{% load base64_filters %}
 
-{% block head%}
+{% block head %}
 <link href="{% static 'css/image_upload.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<style>
+    .card {
+        width: 30%;
+        margin: 0 auto;
+    }
+    .card-img-top {
+        width: 100%;
+        object-fit: cover;
+        height: 300px; /* Змініть висоту за потреби */
+    }
+    .btn-group {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px; /* Додана пуста відстань */
+    }
+</style>
 {% endblock %}
 
 {% block content %}
 <br ><br ><br > <br >
-<div class="text-center">
-    <h1>Prediction Result</h1>
-    <p>Predicted Class: {{ predicted_class }}</p>
-    <br >
-    <a href="{% url 'images:upload_image' %}">Try again</a>
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <div class="card">
+                <img src="data:image/jpeg;base64,{{ uploaded_image|base64encode }}" alt="Uploaded Image" class="card-img-top">
+                <div class="card-body">
+                    <h1 class="card-title">Prediction Result:</h1>
+                    <div class="text-center">
+                        <h2 class="card-subtitle mb-2 text-muted">{{ predicted_class }}</h2>
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn btn-danger">False</button>
+                        <button class="btn btn-success">True</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
 </div>
-<br>
+
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+</script>
+
 {% endblock %}
