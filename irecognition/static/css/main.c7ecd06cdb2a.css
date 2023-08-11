@@ -279,7 +279,7 @@ section {
 
   .navmenu a,
   .navmenu a:focus {
-    color: var(--color-nav);
+    color: black;
     padding: 18px 15px;
     font-size: 16px;
     font-family: var(--font-secondary);

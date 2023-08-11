@@ -6,8 +6,11 @@ In this project, we have implemented a Convolutional Neural Network (CNN) to cla
 ## Web Interface for Image Classification:
 Our project goes beyond the backend implementation of a CNN. We have created a captivating web interface using Django, enabling users to interact with our image classifier seamlessly. The intuitive design and user-friendly interface allow anyone to upload an image and receive real-time predictions about the object contained in the image.
 
+Video Preview:
+
+[![Video Preview](https://img.youtube.com/vi/ZBydHd9l5uA/0.jpg)](https://www.youtube.com/watch?v=ZBydHd9l5uA)
 ![Web Interface Screenshot](/img/web-i.png)
-![Web Interface Screenshot](/img/web-i-upload.png)
+![Web Interface Screenshot](/img/web-predict.png)
 
 ## Getting Started:
 
