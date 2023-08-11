@@ -18,7 +18,7 @@ def test_create_user_returns_new_user(user_model_save_mock):
     assert isinstance(user, USER_MODEL)
     assert user.email == expected_user_data["email"]
     assert check_password(expected_user_data["password"], user.password)
-    assert user.is_active is False
+    assert user.is_active is True
     assert user.is_staff is False
     assert user.is_superuser is False
     assert user.username is None
