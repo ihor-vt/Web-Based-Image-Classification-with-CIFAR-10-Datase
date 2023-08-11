@@ -1,6 +1,5 @@
 from django.contrib.auth.views import PasswordResetView
 from django.contrib.messages.views import SuccessMessageMixin
-from django.utils.translation import gettext_lazy as _
 from django.shortcuts import render, redirect
 from django.contrib.auth.hashers import make_password
 from django.urls import reverse_lazy
@@ -68,7 +67,7 @@ def registration(request):
 
             hashed_password = make_password(password2)
 
-            user = User.objects.create_user(
+            User.objects.create_user(
                 email=email,
                 password=hashed_password,
             )

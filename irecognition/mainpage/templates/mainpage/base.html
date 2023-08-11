@@ -50,7 +50,7 @@
           <li><a href="/#team">Team</a></li>
           <li><a href="/#contact">Contact</a></li>
           {% if user.is_authenticated %}
-          <li><p>{{ user.email|slice:"0:user.email|find:'@'" }}</p></li>
+          <li><a>{{ user.email }}</a></li>
           <li><a href="{% url 'users:logout' %}" class="active">Logout</a></li>
           {% else %}
           <li><a href="{% url 'users:registration' %}" class="active">Register</a></li>

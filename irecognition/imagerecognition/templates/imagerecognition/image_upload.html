@@ -4,7 +4,19 @@
 {% block head%}
 <link href="{% static 'css/image_upload.css' %}" rel="stylesheet">
 {% endblock %}
+{% if messages %}
+<div>
+    {% for message in messages %}
+    <div {% if message.tags %} class="alert-{{ message.tags }} text-center" {% endif %}>{{ message }}</div>
+    {% endfor %}
+</div>
+{% endif %}
 
+{% if form.errors %}
+<div class="alert alert-danger text-center" role="alert">
+    <span>{{ form.non_field_errors }}</span>
+</div>
+{% endif %}
 {% block content %}
 <br><br><br> 
 <div class="wrapper">

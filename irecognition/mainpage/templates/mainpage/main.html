@@ -19,7 +19,7 @@
                     data-aos-delay="300">
                     {% csrf_token %}
                     {{ subscribe_form.email }}
-                    <button type="submit" class="btn btn-danger">Subscribe</button> 
+                    <button type="submit" class="btn btn-danger">Subscribe</button>
                 </form>
             </div>
         </div>
@@ -76,7 +76,8 @@
                 <p> In this project, a Convolutional Neural Network (CNN) was implemented to classify images from the
                     CIFAR-10 dataset into ten different classes: airplane, automobile, bird, cat, deerdog, frog, horse,
                     ship, and truck. The CNN architecture was designed using the functional API in TensorFlow/Keras.</p>
-                <a href="{% url 'images:upload_image' %}" class="read-more"><span>Let's try now</span><i class="bi bi-arrow-right"></i></a>
+                <a href="{% url 'images:upload_image' %}" class="read-more"><span>Let's try now</span><i
+                        class="bi bi-arrow-right"></i></a>
             </div>
 
             <div class="col-xl-7">
@@ -178,8 +179,100 @@
 </section><!-- End Stats Section -->
 
 <!-- Portfolio Section - Home Page -->
-<!-- End Portfolio Section -->
+<section id="portfolio" class="portfolio">
 
+    <!--  Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Results</h2>
+        <p>Examples of some results.</p>
+    </div><!-- End Section Title -->
+
+    <div class="container">
+
+        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+
+            <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+                <li data-filter="*" class="filter-active">All</li>
+                <li data-filter=".filter-successful">Successful</li>
+                <li data-filter=".filter-negative">Negative</li>
+            </ul><!-- End Portfolio Filters -->
+
+            <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+                <!-- Successful -->
+                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-successful">
+                    <a href="{% static 'img/results/Car.png' %}" class="portfolio-img" data-gallery="portfolio-gallery"
+                        title="Car">
+                        <img src="{% static 'img/results/Car.png' %}" class="img-fluid rounded" alt="Car">
+                    </a>
+                </div><!-- End Portfolio Item -->
+
+                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-successful">
+                    <a href="{% static 'img/results/Dog.png' %}" class="portfolio-img" data-gallery="portfolio-gallery"
+                        title="Dog">
+                        <img src="{% static 'img/results/Dog.png' %}" class="img-fluid rounded" alt="Dog">
+                    </a>
+                </div><!-- End Portfolio Item -->
+
+                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-successful">
+                    <a href="{% static 'img/results/Airplane.png' %}" class="portfolio-img"
+                        data-gallery="portfolio-gallery" title="Airplane">
+                        <img src="{% static 'img/results/Airplane.png' %}" class="img-fluid rounded" alt="Airplane">
+                    </a>
+                </div><!-- End Portfolio Item -->
+
+                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-successful">
+                    <a href="{% static 'img/results/Deer.png' %}" class="portfolio-img" data-gallery="portfolio-gallery"
+                        title="Deer">
+                        <img src="{% static 'img/results/Deer.png' %}" class="img-fluid rounded" alt="Deer">
+                    </a>
+                </div><!-- End Portfolio Item -->
+
+                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-successful">
+                    <a href="{% static 'img/results/Truck.png' %}" class="portfolio-img"
+                        data-gallery="portfolio-gallery" title="Truck">
+                        <img src="{% static 'img/results/Truck.png' %}" class="img-fluid rounded" alt="Truck">
+                    </a>
+                </div><!-- End Portfolio Item -->
+
+                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-successful">
+                    <a href="{% static 'img/results/Frog.png' %}" class="portfolio-img" data-gallery="portfolio-gallery"
+                        title="Frog">
+                        <img src="{% static 'img/results/Frog.png' %}" class="img-fluid rounded" alt="Frog">
+                    </a>
+                </div><!-- End Portfolio Item -->
+
+                <!-- Add more portfolio items as needed -->
+
+                <!-- Negative -->
+                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-negative">
+                    <a href="{% static 'img/results/Cat_dog.png' %}" class="portfolio-img"
+                        data-gallery="portfolio-gallery" title="Cat and Dog">
+                        <img src="{% static 'img/results/Cat_dog.png' %}" class="img-fluid rounded" alt="Cat and Dog">
+                    </a>
+                </div><!-- End Portfolio Item -->
+
+                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-negative">
+                    <a href="{% static 'img/results/Dog_cat.png' %}" class="portfolio-img"
+                        data-gallery="portfolio-gallery" title="Dog and Cat">
+                        <img src="{% static 'img/results/Dog_cat.png' %}" class="img-fluid rounded" alt="Dog and Cat">
+                    </a>
+                </div><!-- End Portfolio Item -->
+
+                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-negative">
+                    <a href="{% static 'img/results/Cars.png' %}" class="portfolio-img" data-gallery="portfolio-gallery"
+                        title="Cars">
+                        <img src="{% static 'img/results/Cars.png' %}" class="img-fluid rounded" alt="Cars">
+                    </a>
+                </div><!-- End Portfolio Item -->
+
+                <!-- Add more portfolio items as needed -->
+            </div><!-- End Portfolio Container -->
+
+        </div>
+
+    </div>
+
+</section><!-- End Portfolio Section -->
 
 <!-- Team Section - Home Page -->
 <section id="team" class="team">
@@ -267,8 +360,7 @@
             </div>
 
             <div class="col-lg-6">
-                <form action="/contact/" method="post" class="email-form" data-aos="fade-up"
-                    data-aos-delay="200">
+                <form action="/contact/" method="post" class="email-form" data-aos="fade-up" data-aos-delay="200">
                     {% csrf_token %}
                     <div class="row gy-4">
                         <div class="col-md-6">
@@ -288,11 +380,11 @@
                             <div class="loading">Loading</div>
                             <div class="error-message"></div>
                             <div class="sent-message">Your message has been sent. Thank you!</div>
-                        {% endif %}
+                            {% endif %}
                             <button type="submit">Send Message</button>
                         </div>
                     </div>
-                    </form>
+                </form>
             </div><!-- End Contact Form -->
 
         </div>
@@ -300,5 +392,4 @@
     </div>
 
 </section><!-- End Contact Section -->
-
 {% endblock %}

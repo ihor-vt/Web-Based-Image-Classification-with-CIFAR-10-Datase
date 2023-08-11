@@ -1,7 +1,7 @@
 import os
 import tempfile
-from django.shortcuts import render
 from django.contrib import messages
+from django.shortcuts import render, redirect
 
 from .forms import UploadImageForm
 from .predict import predict_image
@@ -30,14 +30,16 @@ def upload_image(request):
                 temp_file.write(image.read())
                 temp_file_path = temp_file.name
 
-            prediction = predict_image(temp_file_path)
+            the_most_predicted_class, other_classes = predict_image(
+                temp_file_path)
 
             # Read the content of the temporary file
             with open(temp_file_path, 'rb') as temp_file_content:
                 content = temp_file_content.read()
 
             context = {
-                'predicted_class': prediction,
+                'the_most_predicted_class': the_most_predicted_class,
+                'other_classes': other_classes,
                 'uploaded_image': content,
             }
 
@@ -77,6 +79,8 @@ def upload_image_button(request):
                 request,
                 "Thank you, we will take your application into consideration."
                 )
+        return redirect("images:upload_image")
+
     form = UploadImageForm()
     return render(
         request,

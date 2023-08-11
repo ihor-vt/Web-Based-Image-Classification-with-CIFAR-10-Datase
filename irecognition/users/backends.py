@@ -7,7 +7,6 @@ class CustomUserBackend(ModelBackend):
     that support custom authentication"""
     def authenticate(self, request, email=None, password=None, **kwargs):
         UserModel = get_user_model()
-        print(f">> UserModel: {UserModel}")
         try:
             user = UserModel.objects.get(email=email)
         except UserModel.DoesNotExist:

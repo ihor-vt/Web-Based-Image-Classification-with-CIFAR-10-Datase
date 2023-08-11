@@ -110,6 +110,7 @@ The model has demonstrated impressive performance, achieving a test accuracy of 
 ## Graphs:
 Here are visual representations of the training and validation progress over the epochs:
 
+Graph Loss and Accuracy
 ![Graph Loss and Accuracy](/img/graph_loss_accuracy.png)
 
 ## Conclusion:
