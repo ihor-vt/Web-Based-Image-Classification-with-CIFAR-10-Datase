@@ -81,7 +81,7 @@ To run this project locally, follow these steps:
 
 1. Pull the Docker image:
    ```bash
-    docker pull icoderp/irecognition:tagname
+    docker push icoderp/irecognition:1.2.1
    ```
 
 2. Run the Docker container:
